@@ -14,3 +14,8 @@ import express from "express";
 could not find declaration file for module 'express'
 
 npm install @types/express# SecondBrain
+
+import mongoose from mongoose
+
+npm install jsonwebtoken
+npm install @types/jsonwebtoken
