@@ -46,6 +46,7 @@ const ContentSchema = new mongoose_1.Schema({
     title: String,
     link: String,
     tags: [{ type: mongoose_1.default.Types.ObjectId, ref: 'Tag' }],
-    userId: { type: mongoose_1.default.Types.ObjectId, ref: 'User', required: true }
+    userId: { type: mongoose_1.default.Types.ObjectId, ref: 'User', required: true },
+    authorId: { type: mongoose_1.default.Types.ObjectId, ref: 'User', required: true }
 });
 exports.ContentModel = (0, mongoose_1.model)('Content', ContentSchema);
