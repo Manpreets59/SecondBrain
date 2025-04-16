@@ -19,3 +19,7 @@ import mongoose from mongoose
 
 npm install jsonwebtoken
 npm install @types/jsonwebtoken
+
+
+How to initialize a react project for typeScript
+npx  create vite@latest
