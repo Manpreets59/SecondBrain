@@ -1,24 +1,36 @@
+// Importing ReactElement type for typing React elements like icons
 import { ReactElement } from "react";
 
-type Variants = "primary" | "secondary"
-interface ButtonProps{
-  variant: Variants ;
-  size: "sm" | "md" | "lg";
-  text: string;
-  startIcon?: ReactElement;
-  endIcon?: ReactElement;
-  onClick: () => void;
+// Defining the properties that the Button component can accept
+interface ButtonProps {
+    variant: "primary" | "secondary"; 
+    text: string; 
+    startIcon?: ReactElement; 
+    onClick?: () => void;
+    fullWidth?: boolean; 
+    loading?: boolean; 
 }
 
-const variantStyles: {[key: Variants]: string} = {
-  "default": "bg-purple-600 text-white",
+// Mapping button variants to their respective CSS classes
+const variantClasses = {
+    "primary": "bg-purple-600 text-white", // Styles for primary variant
+    "secondary": "bg-purple-200 text-purple-600", // Styles for secondary variant
+};
 
-export const Button = (props: ButtonProps) => {
-  if(props.variant === "primary"){
-    if(props.size === "lg"){
+// Default CSS classes for all buttons
+const defaultStyles = "px-4 py-2 rounded-md font-light flex items-center";      //items-center is for vertically allignment of the item to be center
 
-    }
-  }
-  return <button></button>
+// The Button functional component
+export function Button({ variant, text, startIcon, onClick, fullWidth, loading }: ButtonProps) {
+    return (
+        // A button element with dynamic class names and properties
+        <button onClick={onClick} className={variantClasses[variant] + " " + defaultStyles + `${fullWidth ? " w-full flex justify-center items-center" : ""} ${loading ? "opacity-45" : ""}` } disabled={loading} >
+            {/* Container for optional start icon */}
+            <div className="pr-2">
+                {startIcon}
+            </div>
+            {/* Button text */}
+            {text}
+        </button>
+    );
 }
-<Button endIcon={"+"} variant = "primary" size = "md" onClick= {() => {}} text= {"asd"} startIcon= {"-"} />
